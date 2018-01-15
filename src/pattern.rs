@@ -2,7 +2,7 @@
 //!
 //! This is an extended version of the standard `Pattern` API which allows
 //! OMG-WTF-8 strings be used as a needle. This API is used as a demonstration
-//! that OMG-WTF-8 can fit into “Pattern 1.x” API, and thus “2.0” is not needed.
+//! that OMG-WTF-8 can fit into “Pattern 1.x” API.
 //!
 //! Existing extensions can be found in:
 //!

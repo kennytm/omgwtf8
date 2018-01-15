@@ -2,10 +2,12 @@ Optimized-Matching-Generalized Wobbly Transformation Format — 8-bit
 ===================================================================
 
 This package implements the “OMG-[WTF-8]” encoding, making it suitable for use as a pattern via
-the “[Pattern 1.5]” API, so it doesn’t need two separate `Pattern` APIs from “[Pattern 2.0]”.
+the “[Pattern 1.5]” API, so it doesn’t need two separate `Pattern` APIs like [RFC #1309] or
+panicking implementations like those in “[Pattern 2.0]”.
 
 [Pattern 1.5]: https://github.com/rust-lang/rust/issues/27721#issuecomment-185405392
-[Pattern 2.0]: https://github.com/rust-lang/rfcs/pull/1309#issuecomment-214030263
+[RFC #1309]: https://github.com/rust-lang/rfcs/pull/1309
+[Pattern 2.0]: https://github.com/Kimundi/rust_pattern_api_v2/blob/5dd99a7e/pattern_api_v2/src/os_string.rs#L447-L450
 
 Background
 ----------
