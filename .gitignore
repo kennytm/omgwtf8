@@ -1,0 +1,6 @@
+.DS_Store
+*.ezdraw
+/target/
+**/*.rs.bk
+Cargo.lock
+.vscode/
