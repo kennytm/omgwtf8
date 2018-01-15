@@ -1,0 +1,16 @@
+[package]
+name = "omgwtf8"
+version = "0.1.0"
+authors = ["kennytm <kennytm@gmail.com>"]
+repository = "https://github.com/kennytm/omgwtf8"
+readme = "README.md"
+keywords = ["encoding", "unicode", "surrogate", "wtf8"]
+license = "MIT"
+description = "Optimized-Matching-Generalized Wobbly Transformation Format — 8-bit"
+
+[badges]
+travis-ci = { repository = "kennytm/omgwtf8" }
+maintenance = { status = "experimental" }
+
+[dependencies]
+regex = "0.2"

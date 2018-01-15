@@ -1,0 +1,4 @@
+sudo: false
+language: rust
+os: linux
+rust: stable
