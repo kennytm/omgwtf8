@@ -136,7 +136,7 @@ OMG-WTF-8 strings are hashed and compared-with-equality through its canonicaliza
 of OMG-WTF-8 strings should be compatible with well-formed *UTF-8*. When unpaired surrogates appear,
 the actual ordering is unspecified. Nevertheless, OMG-WTF-8 should be totally ordered.
 
-OMG-WTF-8 must be converted to WTF-8 when stored.
+OMG-WTF-8 must be converted to WTF-8 when placed in a mutable and unshared buffer.
 
 ### Slicing
 
