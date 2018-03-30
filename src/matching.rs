@@ -38,8 +38,7 @@ pub struct Split<H: Haystack, P: Pattern<H>> {
 
 impl<H: Haystack, P: Pattern<H>> Split<H, P> {
     fn get_end(&mut self) -> Option<H> {
-        if !self.finished && (self.allow_trailing_empty || !H::is_range_empty(self.start, self.end))
-        {
+        if !self.finished && (self.allow_trailing_empty || self.start < self.end) {
             self.finished = true;
             unsafe {
                 Some(H::range_to_self(

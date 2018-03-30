@@ -54,8 +54,8 @@ pub trait Searcher<H: Haystack> {
 pub trait Haystack: Sized {
     /// If the haystack is treated as an `&[T]` slice, the cursor’s type should
     /// be `*const T`.
-    type StartCursor: Copy;
-    type EndCursor: Copy;
+    type StartCursor: Copy + PartialOrd<Self::EndCursor>;
+    type EndCursor: Copy + PartialOrd<Self::StartCursor>;
 
     fn cursor_at_front(hs: &Self) -> Self::StartCursor;
     fn cursor_at_back(hs: &Self) -> Self::EndCursor;
@@ -66,7 +66,6 @@ pub trait Haystack: Sized {
     unsafe fn start_cursor_to_offset(hs: &Self, cur: Self::StartCursor) -> usize;
     unsafe fn end_cursor_to_offset(hs: &Self, cur: Self::EndCursor) -> usize;
 
-    fn is_range_empty(start: Self::StartCursor, end: Self::EndCursor) -> bool;
     unsafe fn range_to_self(hs: Self, start: Self::StartCursor, end: Self::EndCursor) -> Self;
 }
 
@@ -145,10 +144,6 @@ impl<'h, T> Haystack for &'h [T] {
 
     unsafe fn end_cursor_to_offset(hs: &Self, cur: Self::EndCursor) -> usize {
         Self::start_cursor_to_offset(hs, cur)
-    }
-
-    fn is_range_empty(start: Self::StartCursor, end: Self::EndCursor) -> bool {
-        start >= end
     }
 
     unsafe fn range_to_self(hs: Self, start: Self::StartCursor, end: Self::EndCursor) -> Self {
@@ -313,10 +308,6 @@ impl<'h> Haystack for &'h OmgWtf8 {
             offset -= 1;
         }
         offset
-    }
-
-    fn is_range_empty(start: Self::StartCursor, end: Self::EndCursor) -> bool {
-        start >= end
     }
 
     unsafe fn range_to_self(_: Self, start: Self::StartCursor, end: Self::EndCursor) -> Self {
